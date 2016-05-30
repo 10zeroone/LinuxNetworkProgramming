@@ -18,17 +18,19 @@ int main(void) {
 
 	fputs("labshell> ", stdout);
 
-	while (fgets(line, MAXLINE, stdin)) {
+	while (fgets(line, MAXLINE, stdin)) { //키보드 입력 받기
 		if (!strncmp(line, "exit", 4))
 			exit(0);
 		//TODO 5-2: TODO 1에서 완성했던 main() 함수에 command_parse() 함수와 command_freelist() 함수를 적용하기
-		if (arglist = command_parse(line)) {
+		if (arglist = command_parse(line)) { //command_parse()함수를 통해 명령어를 분석
 
 			//TODO 11: 빌트인 명령을 위한 isbuiltin.c를 완성했으니  main() 함수에서 이 함수를 호출하도록 설정
-			if (!check_builtin(arglist)) {
+			if (!check_builtin(arglist)) { //내장 명령인지 체크
 				
 				for (i = 0; arglist[i]; i++) {
-					printf("[%d]: %s\n", i, arglist[i]);
+					//TODO 16: 외부명령일 때 exec_command()함수 호출하도록 수정
+					exec_command(arglist); 
+//					printf("[%d]: %s\n", i, arglist[i]); //외부 명령일때 인수의 목록을 출력
 				}
 				command_freelist(arglist);
 			}
