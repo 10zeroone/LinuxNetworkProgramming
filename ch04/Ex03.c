@@ -1,4 +1,4 @@
-//ÇÁ·Î±×·¥À» ¼öÇàÇÏ´Â »ç¶÷ÀÇ Á¤º¸¸¦ È®ÀÎÇÏ´Â ÇÁ·Î±×·¥
+//í”„ë¡œê·¸ë¨ì„ ìˆ˜í–‰í•˜ëŠ” ì‚¬ëŒì˜ ì •ë³´ë¥¼ í™•ì¸í•˜ëŠ” í”„ë¡œê·¸ë¨
 
 #include <stdio.h>
 #include <unistd.h>
@@ -15,15 +15,15 @@ int main() {
 	name = pass->pw_name; 
 	printf("This is the login name: %s\n", name);
 	
-//	printf("Name: %s\n", getlogin()); //deprecated µÈ ÇÔ¼öÀÔ´Ï´Ù. È£Ãâ½Ã null¸¸ ¹İÈ¯µË´Ï´Ù.
+//	printf("Name: %s\n", getlogin()); //deprecated ëœ í•¨ìˆ˜ì…ë‹ˆë‹¤. í˜¸ì¶œì‹œ nullë§Œ ë°˜í™˜ë©ë‹ˆë‹¤.
 	
 	return 0; 
 }
 
 
 
-//Ãâ·Â°á°ú
-//ÀÌ ÇÁ·Î±×·¥Àº UID 1000ÀÎ »ç¿ëÀÚ codedragon ½ÇÇàÇÏ°í ÀÖÀ½À» ¾Ë ¼ö ÀÖ½À´Ï´Ù. 
+//ì¶œë ¥ê²°ê³¼
+//ì´ í”„ë¡œê·¸ë¨ì€ UID 1000ì¸ ì‚¬ìš©ì codedragon ì‹¤í–‰í•˜ê³  ìˆìŒì„ ì•Œ ìˆ˜ ìˆìŠµë‹ˆë‹¤. 
 /*
 codedragon@ubuntu:~$ cd CodeLab/ch04/
 codedragon@ubuntu:~/CodeLab/ch04$ gcc -o Ex03 Ex03.c 

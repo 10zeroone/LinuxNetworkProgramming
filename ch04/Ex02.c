@@ -7,6 +7,7 @@
 int main(void) {
 	char *homedir, filename[80];
 	FILE *fp;
+	
 	homedir = getenv("HOME"); //쉘의 환경 변수 HOME을 이용하여 사용자의 홈 디렉토리의 경로를 알아오기
 	strcpy(filename, homedir);
 	strcat(filename, "/test.log"); //사용자의 홈 디렉토리의 경로를 알아내고 여기에 test.log 파일명을 추가하여 파일명을 완성합니다. 

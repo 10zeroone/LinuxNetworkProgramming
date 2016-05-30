@@ -1,17 +1,17 @@
-//½Ã½ºÅÛÀÇ »ç¾ç ¾Ë¾Æº¸±â
-//½Ã½ºÅÛÀÇ »ç¾ç¿¡ ´ëÇÏ¿© ¾Ë¾Æº¸±â À§ÇØ gethostname()°ú uname()ÇÔ¼ö¸¦ »ç¿ëÇÑ ÇÁ·Î±×·¥
-//gethostname() ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© È£½ºÆ® ¸í¿¡ ´ëÇÑ Á¤º¸¿Í uname() ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿©  OS Á¾·ù¿Í È£½ºÆ®¸í, Ä¿³Î ¹öÀü, ºôµåµÈ ¹öÀü ¹× ÇÏµå¿ş¾î Á¾·ù¸¦ ¾Ë ¼ö ÀÖ½À´Ï´Ù. 
+//ì‹œìŠ¤í…œì˜ ì‚¬ì–‘ ì•Œì•„ë³´ê¸°
+//ì‹œìŠ¤í…œì˜ ì‚¬ì–‘ì— ëŒ€í•˜ì—¬ ì•Œì•„ë³´ê¸° ìœ„í•´ gethostname()ê³¼ uname()í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•œ í”„ë¡œê·¸ë¨
+//gethostname() í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ í˜¸ìŠ¤íŠ¸ ëª…ì— ëŒ€í•œ ì •ë³´ì™€ uname() í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬  OS ì¢…ë¥˜ì™€ í˜¸ìŠ¤íŠ¸ëª…, ì»¤ë„ ë²„ì „, ë¹Œë“œëœ ë²„ì „ ë° í•˜ë“œì›¨ì–´ ì¢…ë¥˜ë¥¼ ì•Œ ìˆ˜ ìˆìŠµë‹ˆë‹¤. 
 
 //----------------------
 /*
-//uname ÇÔ¼ö¿¡¼­ »ç¿ëÇÏ´Â struct utsname ±¸Á¶Ã¼ ÀÚ·áÇü
+//uname í•¨ìˆ˜ì—ì„œ ì‚¬ìš©í•˜ëŠ” struct utsname êµ¬ì¡°ì²´ ìë£Œí˜•
 #include <sys/utsname.h>
 struct utsname {
-	char sysname[]; //OS Á¾·ù
-	char nodename[]; //È£½ºÆ® ¸í
-	char release[]; //Ä¿³Î ¸±¸®Áî ¹øÈ£
-	char version[]; //Ä¿³Î ºôµå ¹öÀü ¹øÈ£
-	char machine[]; //ÇÏµå¿ş¾î »ç¾ç (32bit/64bit)
+	char sysname[]; //OS ì¢…ë¥˜
+	char nodename[]; //í˜¸ìŠ¤íŠ¸ ëª…
+	char release[]; //ì»¤ë„ ë¦´ë¦¬ì¦ˆ ë²ˆí˜¸
+	char version[]; //ì»¤ë„ ë¹Œë“œ ë²„ì „ ë²ˆí˜¸
+	char machine[]; //í•˜ë“œì›¨ì–´ ì‚¬ì–‘ (32bit/64bit)
 };
 */
 
@@ -26,7 +26,7 @@ int main(void) {
 	struct utsname mysystem;
 	char myhostname[256];
 	
-	//gethostname() ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿© È£½ºÆ® ¸í¿¡ ´ëÇÑ Á¤º¸ ¾Ë¾Æ¿À±â
+	//gethostname() í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬ í˜¸ìŠ¤íŠ¸ ëª…ì— ëŒ€í•œ ì •ë³´ ì•Œì•„ì˜¤ê¸°
 	if(gethostname(myhostname, 255)!=0){
 		perror("gethostname");
 		exit(1);
@@ -34,24 +34,24 @@ int main(void) {
 	printf("gethostname: %s\n", myhostname);
 	
 	
-	//uname() ÇÔ¼ö¸¦ ÀÌ¿ëÇÏ¿©  OS Á¾·ù¿Í È£½ºÆ®¸í, Ä¿³Î ¹öÀü, ºôµåµÈ ¹öÀü ¹× ÇÏµå¿ş¾î Á¾·ù¸¦ ¾Ë¾Æ¿À±â
+	//uname() í•¨ìˆ˜ë¥¼ ì´ìš©í•˜ì—¬  OS ì¢…ë¥˜ì™€ í˜¸ìŠ¤íŠ¸ëª…, ì»¤ë„ ë²„ì „, ë¹Œë“œëœ ë²„ì „ ë° í•˜ë“œì›¨ì–´ ì¢…ë¥˜ë¥¼ ì•Œì•„ì˜¤ê¸°
 	if(uname(&mysystem)==-1){
 		perror("uname");
 		exit(1);
 	}
-	printf("OS name: %s\n", mysystem.sysname); //OS Á¾·ù
-	printf("hostname: %s\n", mysystem.nodename); //È£½ºÆ® ¸í
-	printf("release: %s\n", mysystem.release); //Ä¿³Î ¸±¸®Áî ¹øÈ£
-	printf("version: %s\n", mysystem.version); //Ä¿³Î ºôµå ¹öÀü ¹øÈ£
-	printf("hardware: %s\n", mysystem.machine); //ÇÏµå¿ş¾î »ç¾ç (32bit/64bit)
+	printf("OS name: %s\n", mysystem.sysname); //OS ì¢…ë¥˜
+	printf("hostname: %s\n", mysystem.nodename); //í˜¸ìŠ¤íŠ¸ ëª…
+	printf("release: %s\n", mysystem.release); //ì»¤ë„ ë¦´ë¦¬ì¦ˆ ë²ˆí˜¸
+	printf("version: %s\n", mysystem.version); //ì»¤ë„ ë¹Œë“œ ë²„ì „ ë²ˆí˜¸
+	printf("hardware: %s\n", mysystem.machine); //í•˜ë“œì›¨ì–´ ì‚¬ì–‘ (32bit/64bit)
 	
 	return 0;
 }
 
 
-//½ÇÇà °á°ú¸¦ »ìÆìº¸¸é 
-//ÇöÀç OS´Â ¸®´ª½ºÀÌ°í È£½ºÆ®¸íÀº ubuntu, Ä¿³Î ¸±¸®Áî ¹øÈ£´Â 4.4.0-21-genericÀÌ¸ç, 2016³â 04¿ù 18ÀÏ¿¡
-//ºôµåµÇ¾ú°í, 64ºñÆ® CPU°¡ ÀåÂøµÈ ½Ã½ºÅÛ¿¡¼­ µ¿ÀÛ ÁßÀÓÀ» ¾Ë ¼ö ÀÖ½À´Ï´Ù.
+//ì‹¤í–‰ ê²°ê³¼ë¥¼ ì‚´í´ë³´ë©´ 
+//í˜„ì¬ OSëŠ” ë¦¬ëˆ…ìŠ¤ì´ê³  í˜¸ìŠ¤íŠ¸ëª…ì€ ubuntu, ì»¤ë„ ë¦´ë¦¬ì¦ˆ ë²ˆí˜¸ëŠ” 4.4.0-21-genericì´ë©°, 2016ë…„ 04ì›” 18ì¼ì—
+//ë¹Œë“œë˜ì—ˆê³ , 64ë¹„íŠ¸ CPUê°€ ì¥ì°©ëœ ì‹œìŠ¤í…œì—ì„œ ë™ì‘ ì¤‘ì„ì„ ì•Œ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 /*
 codedragon@ubuntu:~/CodeLab/ch04$ gcc -o Ex06 Ex06.c 
 codedragon@ubuntu:~/CodeLab/ch04$ ./Ex06

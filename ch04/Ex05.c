@@ -1,4 +1,4 @@
-//½ÇÇà ÁßÀÎ ÇÁ·Î±×·¥ÀÇ °íÀ¯ÇÑ ¹øÈ£ÀÎ PID¿Í ±× ºÎ¸ð ÇÁ·Î¼¼½ºÀÇ PPID¸¦ È®ÀÎÇÏ´Â ÇÁ·Î±×·¥
+//ì‹¤í–‰ ì¤‘ì¸ í”„ë¡œê·¸ëž¨ì˜ ê³ ìœ í•œ ë²ˆí˜¸ì¸ PIDì™€ ê·¸ ë¶€ëª¨ í”„ë¡œì„¸ìŠ¤ì˜ PPIDë¥¼ í™•ì¸í•˜ëŠ” í”„ë¡œê·¸ëž¨
 
 #include <stdio.h>
 #include <sys/types.h>
@@ -6,17 +6,17 @@
 
 int main(void) {
 	
-	printf("PID: %d\n", getpid()); //ÇöÀç ¼öÇàµÇ´Â ÇÁ·Î¼¼½ºÀÇ PID
-	printf("PPID: %d\n", getppid()); //ÇöÀç ¼öÇàµÇ´Â ÇÁ·Î¼¼½ºÀÇ ºÎ¸ð ÇÁ·Î¼¼½ºÀÎ Parent PID(PPID)
+	printf("PID: %d\n", getpid()); //í˜„ìž¬ ìˆ˜í–‰ë˜ëŠ” í”„ë¡œì„¸ìŠ¤ì˜ PID
+	printf("PPID: %d\n", getppid()); //í˜„ìž¬ ìˆ˜í–‰ë˜ëŠ” í”„ë¡œì„¸ìŠ¤ì˜ ë¶€ëª¨ í”„ë¡œì„¸ìŠ¤ì¸ Parent PID(PPID)
 	
 	return 0;
 }
 
 
 
-//Ãâ·Â °á°ú
-//getpid() ÇÔ¼öÀÇ ¼öÇà°á°ú ÀÌ ÇÁ·Î¼¼½ºÀÇ PID´Â 14074ÀÌ°í 
-//getlppid() ÇÔ¼öÀÇ ¼öÇà°á°ú PPID´Â 13579¹ø ÀÓÀ» ¾Ë ¼ö ÀÖ½À´Ï´Ù.  
+//ì¶œë ¥ ê²°ê³¼
+//getpid() í•¨ìˆ˜ì˜ ìˆ˜í–‰ê²°ê³¼ ì´ í”„ë¡œì„¸ìŠ¤ì˜ PIDëŠ” 14074ì´ê³  
+//getlppid() í•¨ìˆ˜ì˜ ìˆ˜í–‰ê²°ê³¼ PPIDëŠ” 13579ë²ˆ ìž„ì„ ì•Œ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.  
 /*
 codedragon@ubuntu:~/CodeLab/ch04$ gcc -o Ex05 Ex05.c 
 codedragon@ubuntu:~/CodeLab/ch04$ ./Ex05
